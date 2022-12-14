@@ -3,7 +3,6 @@
     src: url("../fonts/Unbounded-Bold.ttf");
 }
 
-
 body {
     --accent-color: #ADA4A2;
     --main-color: white;
@@ -18,14 +17,13 @@ h1, h2, .name, .description-header {
 
 p, a, li, .project-tab, .project-tab-selected {
     font-family: "Oswald", monospace;
-    font-size: 18px;
 }
 
 
 
 #top-section{
     background: linear-gradient(to right, var(--accent-color) 100%, transparent 0) no-repeat fixed center;
-    background-size: 90vw 80vh;
+    background-size: 90% 80%;
     margin-bottom: 100px;
 }
 
@@ -41,26 +39,26 @@ p, a, li, .project-tab, .project-tab-selected {
 #title {
     position: absolute;
     top: 20px;
-    font-size: 60px;
     left: 0;
     right: 0;
     width: fit-content;
     margin: 40px auto;
     color: var(--contrast-color);
+    text-align: center;
 }
 
 .name {
     color: var(--accent-color);
-    margin-right: 50px;
-    margin-left: 50px;
+    margin: 10px 50px;
     height: fit-content;
     padding: 10px;
-    font-size: 50px;
     text-shadow: -1px 0 var(--main-color), 0 1px var(--main-color), 1px 0 var(--main-color), 0 -1px var(--main-color);
 }
 
 #photo {
-    height: 60vh;
+    width: 30%;
+    max-height: 60%;
+    object-fit: contain;
 }
 
 #facts {
@@ -80,7 +78,6 @@ p, a, li, .project-tab, .project-tab-selected {
 #work-and-education .framed-section {
     width: 100%;
     margin-bottom: 0;
-    max-height: 20vh;
 }
 
 .popup-header {
@@ -88,7 +85,6 @@ p, a, li, .project-tab, .project-tab-selected {
     text-underline-offset: 5px;
     color: var(--contrast-color);
     cursor: pointer;
-    font-size: 20px;
 }
 
 .popup-content {
@@ -101,7 +97,6 @@ p, a, li, .project-tab, .project-tab-selected {
 }
 
 .popup-content p:nth-child(1) {
-    font-size: 20px;
 }
 
 .popup-content p:nth-child(2) {
@@ -140,6 +135,7 @@ p, a, li, .project-tab, .project-tab-selected {
     display: flex;
     flex-wrap: wrap;
     opacity: 0;
+    margin: 10px;
 }
 
 .stack-item {
@@ -162,7 +158,6 @@ p, a, li, .project-tab, .project-tab-selected {
     position: relative;
     bottom: -45px;
     max-width: 100%;
-    font-size: 15px;
     opacity: 0;
 }
 
@@ -171,7 +166,7 @@ p, a, li, .project-tab, .project-tab-selected {
 .framed-section {
     border: 1px solid;
     margin: 30px auto 100px;
-    width: 90vw;
+    width: 90%;
     height: fit-content;
 }
 
@@ -179,7 +174,6 @@ p, a, li, .project-tab, .project-tab-selected {
     position: relative;
     bottom: 50px;
     left: 20px;
-    font-size: 30px;
     width: fit-content;
     padding: 5px;
     margin-bottom: 0;
@@ -220,23 +214,24 @@ p, a, li, .project-tab, .project-tab-selected {
 
 #projects-header {
     display: flex;
+    flex-wrap: wrap;
     position: relative;
     bottom: 25px;
 }
 
 #projects-tabs {
     position: relative;
-    display: table;
+    display: flex;
+    flex-wrap: wrap;
     bottom: 10px;
+    margin: 10px;
 }
 
 .project-tab, .project-tab-selected {
     width: 150px;
-    font-size: 20px;
     text-align: center;
     vertical-align: middle;
     padding: 10px;
-    display: table-cell;
     cursor: pointer;
 }
 
@@ -313,7 +308,6 @@ p, a, li, .project-tab, .project-tab-selected {
 
 .main-point {
     color: var(--contrast-color);
-    font-size: 20px;
     margin: 15px 0;
 }
 
@@ -325,14 +319,12 @@ p, a, li, .project-tab, .project-tab-selected {
     color: var(--contrast-color);
     border-left: 10px solid var(--accent-color);
     padding: 10px;
-    font-size: 20px;
 }
 
 
 
 footer {
     background: var(--accent-color);
-    padding: 0 55px;
     display: flex;
     justify-content: space-between;
 }
@@ -346,9 +338,56 @@ footer {
     display: grid;
     grid-template-columns: 25px auto;
     column-gap: 10px;
+    padding-left: 55px;
 }
 
 footer a {
     align-self: center;
     color: var(--main-color);
+    padding-right: 55px;
+}
+
+
+@media screen and (max-width: 1150px){
+    #top-section-header {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .stack-item p {
+        opacity: 1;
+    }
+
+    .project-info {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 800px){
+    #work-and-education {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (min-width: 936px){
+    #title {
+        font-size: 60px;
+    }
+
+    .name {
+        font-size: 50px;
+    }
+}
+
+@media screen and (max-width: 935px){
+    #title {
+        top: 30px;
+    }
+}
+
+@media screen and (max-width: 290px){
+    #title {
+        top: 50px;
+    }
 }
