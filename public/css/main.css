@@ -356,6 +356,7 @@ footer a {
 
     .stack-item p {
         opacity: 1;
+        font-size: 11px;
     }
 
     .project-info {
