@@ -15,8 +15,15 @@ h1, h2, .name, .description-header {
     font-family: "Unbounded Bold", monospace;
 }
 
-p, a, li, .project-tab, .project-tab-selected {
+p, a, li, .project-tab, .project-tab-selected, button {
     font-family: "Oswald", monospace;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    width: fit-content;
+    cursor: pointer;
 }
 
 
@@ -45,6 +52,7 @@ p, a, li, .project-tab, .project-tab-selected {
     margin: 40px auto;
     color: var(--contrast-color);
     text-align: center;
+    font-size: 60px;
 }
 
 .name {
@@ -53,6 +61,51 @@ p, a, li, .project-tab, .project-tab-selected {
     height: fit-content;
     padding: 10px;
     text-shadow: -1px 0 var(--main-color), 0 1px var(--main-color), 1px 0 var(--main-color), 0 -1px var(--main-color);
+    font-size: 50px;
+}
+
+@media (max-width: 936px) {
+    #title {
+        font-size: 40px;
+        top: 40px;
+    }
+
+    .name {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 624px) {
+    #title {
+        font-size: 25px;
+        top: 55px;
+    }
+
+    .name {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 395px) {
+    #title {
+        font-size: 20px;
+        top: 60px;
+    }
+
+    .name {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 312px) {
+    #title {
+        font-size: 15px;
+        top: 65px;
+    }
+
+    .name {
+        font-size: 15px;
+    }
 }
 
 #photo {
@@ -275,6 +328,13 @@ p, a, li, .project-tab, .project-tab-selected {
     margin-left: 20px;
 }
 
+.project-links button {
+    text-decoration: underline;
+    margin-left: 20px;
+    padding: 0;
+    font-size: initial;
+}
+
 .project-description {
     display: grid;
     grid-template-columns: 40% auto;
@@ -289,6 +349,48 @@ p, a, li, .project-tab, .project-tab-selected {
     padding-left: 20px;
 }
 
+
+
+#modal-background{
+    width: 100%;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: rgba(173, 164, 162, 0.5);
+    position: fixed;
+    top: 0;
+    margin: auto;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+#modal{
+    border: solid 1px var(--accent-color);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(173, 164, 162, 0.35) 0 5px 15px;
+    width: 70%;
+    height: auto;
+    z-index: 100;
+}
+
+#modal video {
+    display: none;
+    width: 100%;
+}
+
+#close-modal-button {
+    font-size: xx-large;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    color: var(--main-color);
+}
 
 
 #qualities{
@@ -325,70 +427,63 @@ p, a, li, .project-tab, .project-tab-selected {
 
 footer {
     background: var(--accent-color);
+    width: 100%;
+}
+
+#footer-content {
     display: flex;
     justify-content: space-between;
+    width: 70%;
+    margin: auto;
 }
 
 #links .icon {
     width: 25px;
     height: 25px;
+    margin: 5px;
 }
 
 #links {
-    display: grid;
-    grid-template-columns: 25px auto;
-    column-gap: 10px;
-    padding-left: 55px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+}
+
+.link {
+    display: flex;
 }
 
 footer a {
     align-self: center;
     color: var(--main-color);
-    padding-right: 55px;
+    padding-right: 15px;
 }
 
-
-@media screen and (max-width: 1150px){
-    #top-section-header {
-        flex-direction: column;
-        padding: 0;
-    }
-
-    .stack-item p {
-        opacity: 1;
-        font-size: 11px;
-    }
-
+@media (max-width: 1024px) {
     .project-info {
         flex-direction: column;
     }
 }
 
-@media screen and (max-width: 800px){
+@media (max-width: 1033px) {
+    #top-section-header {
+        flex-direction: column;
+        padding: 0;
+    }
+
     #work-and-education {
         display: flex;
         flex-wrap: wrap;
     }
 }
 
-@media screen and (min-width: 936px){
-    #title {
-        font-size: 60px;
+@media (max-width: 768px) {
+    .stack-item p {
+        opacity: 1;
+        font-size: 11px;
     }
 
-    .name {
-        font-size: 50px;
-    }
-}
-
-@media screen and (max-width: 935px){
-    #title {
-        top: 30px;
-    }
-}
-
-@media screen and (max-width: 290px){
-    #title {
-        top: 50px;
+    #footer-content {
+        width: 100%;
     }
 }

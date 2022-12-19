@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="public/css/main.css">
     <script src="public/js/main.js"></script>
     <script src="public/js/renderProjects.js"></script>
-
+    <script src="public/js/renderModal.js"></script>
 </head>
 <body>
 
@@ -25,7 +25,7 @@
                     <h2 class="section-header hide-header">Где работала</h2>
                     <div class="section-content">
                         <div class="popup">
-                            <p class="popup-header">Детский английский лагерь “Хилтон”</p>
+                            <p class="popup-header">Детский английский лагерь Хилтон</p>
                             <div class="popup-content">
                                 <p>саппотер (вожатая)</p>
                                 <p>июль 2018</p>
@@ -89,6 +89,12 @@
             <h2 class="section-header">Мои проекты</h2>
             <div id="projects-tabs"></div>
         </div>
+
+        <div id="modal-background">
+            <button id="close-modal-button" onclick="closeModal()">x</button>
+            <div id="modal">
+            </div>
+        </div>
     </section>
 
     <section class="framed-section dark" id="about-me">
@@ -144,14 +150,20 @@
 </main>
 
 <footer>
-    <section id="links">
-        <div class="icon" style="background-image: url('public/images/telegram.png')"></div>
-        <a href="https://t.me/dashazhukovaaa">@dashazhukovaaa</a>
-        <div class="icon" style="background-image: url('public/images/git.png')"></div>
-        <a href="https://github.com/dshzhkv">dshzhkv</a>
-    </section>
+    <div id="footer-content">
+        <section id="links">
+            <div class="link">
+                <div class="icon" style="background-image: url('public/images/telegram.png')"></div>
+                <a href="https://t.me/dashazhukovaaa">@dashazhukovaaa</a>
+            </div>
+            <div class="link">
+                <div class="icon" style="background-image: url('public/images/git.png')"></div>
+                <a href="https://github.com/dshzhkv">dshzhkv</a>
+            </div>
+        </section>
 
-    <a href="https://github.com/dshzhkv/cv">Код этого сайта</a>
+        <a href="https://github.com/dshzhkv/cv">Код этого сайта</a>
+    </div>
 </footer>
 
 </body>

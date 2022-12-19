@@ -11,6 +11,7 @@ function setupProjects() {
                 name: "Memo Meme",
                 imgSrc: "public/images/memo-meme.png",
                 gitUrl: "https://github.com/dshzhkv/Memo-meme-game",
+                videoSrc: "public/videos/memo-meme.mp4",
                 description: "Реализация игры memo для курса по основам веб-разработки",
                 team: "4 человека  (2 бэкендера, 2 фронтендера)",
                 stack: "js, express, html, css",
@@ -21,6 +22,7 @@ function setupProjects() {
                 name: "Mandatum",
                 imgSrc: "public/images/mandatum.png",
                 gitUrl: "https://github.com/dshzhkv/Mandatum",
+                videoSrc: "public/videos/mandatum.mp4",
                 description: "Веб-приложение на ASP.NET для курса по ООП на C#",
                 team: "4 человека (2 бэкендера, 2 фронтендера)",
                 stack: "C#, ASP.NET, Azure, html, css",
@@ -31,6 +33,7 @@ function setupProjects() {
                 name: "WishLists",
                 imgSrc: "public/images/wishlists.png",
                 gitUrl: "https://github.com/dyme-stud/wishlist",
+                videoSrc: "public/videos/wishlists.mp4",
                 description: "Веб-приложение для создания вишлистов. Проект для курса по Java",
                 team: "3 человека (1 бэкендер, 1 фронтендер, 1 фулл-стек)",
                 stack: "java, Spring, thymeleaf",
@@ -54,8 +57,9 @@ function setupProjects() {
             {
                 name: "Food App",
                 imgSrc: "public/images/food-app.png",
+                videoSrc: "public/videos/food-app.mp4",
                 description: "Веб-приложение для заказа еды в школах. Проект в рамках «Проектного обучения», заказчик: Альфа-Банк",
-                team: "4 человека (2 бэкендера, 2 фронтендера",
+                team: "4 человека (2 бэкендера, 2 фронтендера)",
                 stack: "React, Redux, TypeScript, html, css",
                 tasks: ["дизайн (UX и UI)", "верстка", "добавление/редактирование/удаление блюд",
                     "добавление/редактирование меню", "заказ меню и редактирование заказа", "кастомный календарь"]
@@ -68,6 +72,10 @@ function setupProjects() {
         tasks: "Что делала я",
     };
 
+    const projectsTabs = document.getElementById("projects-tabs");
+    const projectsSection = document.getElementById("projects");
+    const modal = document.getElementById("modal");
+
     function createProjectTab(projectId, projectInfo) {
         let projectTab = document.createElement("div");
         projectTab.className = "project-tab";
@@ -75,26 +83,29 @@ function setupProjects() {
         projectTab.onclick = () => renderProjectInfo(projectId);
         projectTab.innerText = projectInfo.name;
 
-        document.getElementById("projects-tabs").appendChild(projectTab);
+        projectsTabs.appendChild(projectTab);
     }
 
-    function setupImage(project) {
+    function setupImage(projectId, projectInfo) {
         let img = document.createElement("img");
-        img.src = project.imgSrc || "";
-        img.alt = `cкриншот проекта ${project.name}`;
+        img.src = projectInfo.imgSrc || "";
+        img.alt = `cкриншот проекта ${projectInfo.name}`;
         img.style.objectFit = 'contain';
         img.style.border = '1px solid var(--accent-color)'
+        if (projectInfo.videoSrc) {
+            img.onclick = () => openModal(projectId);
+            img.style.cursor = 'pointer';
+        }
         return img;
     }
 
-    function setupLinks(project) {
+    function setupLinks(projectId, projectInfo) {
         let links = document.createElement("div");
         links.className = "project-links";
 
-        let gitUrl = project.gitUrl;
-        if (gitUrl) {
+        if (projectInfo.gitUrl) {
             let gitLink = document.createElement("a");
-            gitLink.href = project.gitUrl || "";
+            gitLink.href = projectInfo.gitUrl;
             gitLink.innerText = "репозиторий";
 
             let icon = document.createElement("div");
@@ -103,6 +114,19 @@ function setupProjects() {
 
             links.appendChild(icon);
             links.appendChild(gitLink);
+        }
+
+        if (projectInfo.videoSrc) {
+            let button = document.createElement("button");
+            button.innerText = "видео-демонстрация";
+            button.onclick = () => openModal(projectId);
+
+            let icon = document.createElement("div");
+            icon.style.backgroundImage = "url('public/images/watch.png')";
+            icon.className = "icon";
+
+            links.appendChild(icon);
+            links.appendChild(button);
         }
 
         return links;
@@ -142,8 +166,8 @@ function setupProjects() {
 
     function setupProjectInfo(projectId, projectInfo) {
 
-        let img = setupImage(projectInfo);
-        let links = setupLinks(projectInfo);
+        let img = setupImage(projectId, projectInfo);
+        let links = setupLinks(projectId, projectInfo);
         let description = setupDescription(projectInfo);
 
         let details = document.createElement("div");
@@ -166,12 +190,30 @@ function setupProjects() {
         content.appendChild(img);
         content.appendChild(details);
 
-        document.getElementById("projects").appendChild(content);
+        projectsSection.appendChild(content);
+    }
+
+    function setupVideoModal(projectId, projectInfo) {
+        let video = document.createElement("video");
+        video.controls = true;
+        video.autoplay = true;
+        video.muted = true;
+        video.poster = projectInfo.imgSrc;
+        video.id = `${projectId}-video`;
+
+        let source = document.createElement("source");
+        source.src = projectInfo.videoSrc;
+
+        video.appendChild(source);
+        modal.appendChild(video);
     }
 
     for (let [projectId, projectInfo] of projects) {
         createProjectTab(projectId, projectInfo);
         setupProjectInfo(projectId, projectInfo);
+        if (projectInfo.videoSrc) {
+            setupVideoModal(projectId, projectInfo);
+        }
     }
 }
 
