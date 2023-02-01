@@ -30,7 +30,7 @@ button {
 
 #top-section{
     background: linear-gradient(to right, var(--accent-color) 100%, transparent 0) no-repeat fixed center;
-    background-size: 90% 80%;
+    background-size: 90% 75%;
     margin-bottom: 100px;
 }
 
@@ -45,7 +45,7 @@ button {
 
 #title {
     position: absolute;
-    top: 20px;
+    top: 25px;
     left: 0;
     right: 0;
     width: fit-content;
@@ -67,7 +67,7 @@ button {
 @media (max-width: 936px) {
     #title {
         font-size: 40px;
-        top: 40px;
+        top: 45px;
     }
 
     .name {
@@ -78,7 +78,7 @@ button {
 @media (max-width: 624px) {
     #title {
         font-size: 25px;
-        top: 55px;
+        top: 60px;
     }
 
     .name {
@@ -89,7 +89,7 @@ button {
 @media (max-width: 395px) {
     #title {
         font-size: 20px;
-        top: 60px;
+        top: 35px;
     }
 
     .name {
@@ -100,7 +100,7 @@ button {
 @media (max-width: 312px) {
     #title {
         font-size: 15px;
-        top: 65px;
+        top: 70px;
     }
 
     .name {
