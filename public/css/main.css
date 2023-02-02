@@ -37,48 +37,36 @@ button {
 #top-section-header {
     display: flex;
     width: 90%;
-    margin: 120px auto 20px;
+    margin: 20px auto;
     justify-content: center;
     align-items: center;
-    padding: 50px;
+}
+
+#top-section-header img{
+    margin: 50px 50px 0 50px;
 }
 
 #title {
-    position: absolute;
-    top: 25px;
-    left: 0;
-    right: 0;
     width: fit-content;
-    margin: 40px auto;
+    margin: 10px 20px 10px 0;
+    padding: 10px;
     color: var(--contrast-color);
-    text-align: center;
     font-size: 60px;
 }
 
 .name {
     color: var(--accent-color);
-    margin: 10px 50px;
+    margin: 10px 20px 10px 0;
     height: fit-content;
     padding: 10px;
     text-shadow: -1px 0 var(--main-color), 0 1px var(--main-color), 1px 0 var(--main-color), 0 -1px var(--main-color);
     font-size: 50px;
 }
 
+
 @media (max-width: 936px) {
     #title {
         font-size: 40px;
-        top: 45px;
-    }
-
-    .name {
-        font-size: 40px;
-    }
-}
-
-@media (max-width: 624px) {
-    #title {
-        font-size: 25px;
-        top: 60px;
     }
 
     .name {
@@ -86,10 +74,19 @@ button {
     }
 }
 
+@media (max-width: 624px) {
+    #title {
+        font-size: 25px;
+    }
+
+    .name {
+        font-size: 20px;
+    }
+}
+
 @media (max-width: 395px) {
     #title {
         font-size: 20px;
-        top: 35px;
     }
 
     .name {
@@ -100,7 +97,6 @@ button {
 @media (max-width: 312px) {
     #title {
         font-size: 15px;
-        top: 70px;
     }
 
     .name {
@@ -417,13 +413,6 @@ button {
     color: var(--accent-color);
 }
 
-#conclusion {
-    color: var(--contrast-color);
-    border-left: 10px solid var(--accent-color);
-    padding: 10px;
-}
-
-
 
 footer {
     background: var(--accent-color);
@@ -474,6 +463,16 @@ footer a {
     #work-and-education {
         display: flex;
         flex-wrap: wrap;
+    }
+
+    #title {
+        text-align: center;
+        margin-right: 0;
+    }
+
+    .name {
+        text-align: center;
+        margin-right: 0;
     }
 }
 
